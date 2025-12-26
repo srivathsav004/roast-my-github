@@ -1,0 +1,6 @@
+
+{
+  "name": "Roast My GitHub",
+  "description": "An aggressive, AI-powered GitHub profile analyzer that turns your code history into premium roasts using Gemini AI. Experience the brutal truth of your tech stack.",
+  "requestFramePermissions": []
+}
