@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import { fetchGitHubData } from './services/githubService';
 import { generateRoast } from './services/geminiService';
 import { AppState, GitHubUserData, RoastData } from './types';
@@ -90,6 +91,7 @@ const App: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <Analytics />
     </div>
   );
 };
