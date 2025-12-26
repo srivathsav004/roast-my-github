@@ -54,7 +54,7 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
   }, [userData.commitHoursDistribution]);
 
   const handleShareTwitter = () => {
-    const text = `I just got absolutely roasted! 💀\n\n"${roastData.bestOneLiners[0]}"\n\nSee your profile audit at RoastMyGitHub.ai #GitHubRoast #DevCulture`;
+    const text = `I just got absolutely roasted! 💀\n\n"${roastData.bestOneLiners[0]}"\n\nSee your profile audit at REPOCRITIC.VERCEL.APP #GitHubRoast #DevCulture`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
@@ -490,85 +490,131 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
 
           {activeTab === 'share' && (
             <motion.div key="share" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-2xl mx-auto space-y-12">
-              <div ref={shareCardRef} className="bg-[#050505] border-[3px] border-[#00ff88] p-0 relative overflow-hidden rounded-none shadow-2xl">
-                <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]" />
+              <div ref={shareCardRef} className="bg-[#0f0f0f] border-[4px] border-[#00ff88] p-0 relative overflow-hidden rounded-none shadow-2xl">
+                <div className="absolute inset-0 pointer-events-none opacity-[0.08] z-50 bg-[linear-gradient(45deg,transparent_48%,rgba(0,255,136,0.03)_50%,transparent_52%),linear-gradient(-45deg,transparent_48%,rgba(255,0,85,0.03)_50%,transparent_52%)] bg-[length:20px_20px,20px_20px]" />
                 
-                <div className="bg-[#00ff88] px-6 py-2.5 flex justify-between items-center text-black font-black uppercase text-[11px] tracking-[0.25em]">
-                  <div className="flex items-center gap-2">
-                    <ShieldAlert className="w-3.5 h-3.5" />
-                    <span>AUDIT_ID: {auditId}</span>
+                <div className="bg-gradient-to-r from-[#ff0055] via-[#ff0055]/70 to-[#00ff88] px-6 py-3.5 flex justify-between items-center text-black font-black uppercase text-[9px] tracking-[0.4em] shadow-lg relative overflow-hidden">
+                  <div className="absolute inset-0 bg-black/5"></div>
+                  <div className="relative flex items-center gap-3">
+                    <div className="w-2 h-2 bg-black/50 rounded-full animate-pulse"></div>
+                    <span className="drop-shadow-[0_1px_2px_rgba(255,255,255,0.3)]">SYSTEM_AUDIT_COMPLETE</span>
                   </div>
-                  <span>ROAST_LEVEL: MAXIMUM</span>
+                  <div className="relative text-red-500 font-black text-lg rotate-[-15deg] heading-font leading-none border-2 border-red-500/30 px-2 py-1 rounded">
+                    ROASTED
+                  </div>
                 </div>
 
-                <div className="p-8 sm:p-12 space-y-10 relative">
-                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none select-none flex items-center justify-center text-[180px] font-black rotate-[-12deg] heading-font leading-none">
-                    CRINGE
-                  </div>
+                <div className="p-10 sm:p-12 space-y-10 relative">
 
                   <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-start relative z-10">
                     <div className="relative shrink-0">
-                      <div className="absolute -inset-0.5 bg-gradient-to-tr from-[#ff0055] via-transparent to-[#00ff88] opacity-100"></div>
-                      <div className="relative w-40 h-40 border-2 border-black bg-black overflow-hidden">
-                        <img 
-                          src={userData.avatarUrl} 
-                          alt={userData.username} 
-                          crossOrigin="anonymous"
-                          className="w-full h-full object-cover grayscale brightness-90 contrast-125" 
-                        />
+                      <div className="relative w-40 h-40 bg-black overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#cc0044] to-[#00cc66] p-1">
+                          <div className="w-full h-full bg-black">
+                            <img 
+                              src={userData.avatarUrl} 
+                              alt={userData.username} 
+                              crossOrigin="anonymous"
+                              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 brightness-90 contrast-125" 
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex-1 min-w-0 text-center sm:text-left space-y-4 pt-2">
-                      <h4 className="text-4xl sm:text-5xl font-black heading-font tracking-tighter leading-none text-white italic break-words uppercase">
+                    <div className="flex-1 min-w-0 text-center sm:text-left space-y-6 pt-2">
+                      <h4 className="text-4xl sm:text-5xl font-black heading-font tracking-tighter leading-none text-white italic break-words uppercase bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">
                         {userData.username}
                       </h4>
                       
                       <div className="flex flex-wrap justify-center sm:justify-start gap-3">
-                         <div className="px-3 py-1 bg-black border-[1.5px] border-[#00ff88] flex items-center gap-3">
+                         <div className="px-3 py-1.5 bg-gradient-to-r from-black/90 to-black/70 border-2 border-[#00ff88]/50 flex items-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all">
+                            <div className="w-2 h-2 bg-[#00ff88] rounded-full animate-pulse"></div>
                             <span className="text-[10px] font-black text-[#00ff88] tracking-widest">GRADE</span>
-                            <span className="text-lg font-black text-white italic">F-</span>
+                            <span className="text-xl font-black text-white italic">F-</span>
                          </div>
-                         <div className="px-3 py-1 bg-black border-[1.5px] border-[#ff0055] flex items-center gap-3">
-                            <span className="text-[10px] font-black text-[#ff0055] tracking-widest">EGO</span>
-                            <span className="text-lg font-black text-white italic">{roastData.consistencyScore}%</span>
+                         <div className="px-3 py-1.5 bg-gradient-to-r from-black/90 to-black/70 border-2 border-[#ff0055]/50 flex items-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,85,0.3)] transition-all">
+                            <div className="w-2 h-2 bg-[#ff0055] rounded-full animate-pulse"></div>
+                            <span className="text-[10px] font-black text-[#ff0055] tracking-widest">CONSISTENCY</span>
+                            <span className="text-xl font-black text-white italic">{roastData.consistencyScore}%</span>
                          </div>
                       </div>
-                      <div className="text-[11px] mono-font text-gray-500 font-bold tracking-[0.4em] uppercase opacity-70">
+                      <div className="text-[11px] mono-font text-gray-300 font-bold tracking-[0.3em] uppercase opacity-90 bg-black/60 backdrop-blur-sm px-3 py-1.5 inline-block border border-gray-700">
                          MEMBER_SINCE: {new Date(userData.createdAt).getFullYear()}
                       </div>
                     </div>
                   </div>
 
-                  <div className="relative z-10 pt-4">
-                    <div className="bg-[#0c0c0c] p-8 border-l-[8px] border-[#ff0055] shadow-xl relative overflow-hidden">
-                      <p className="text-2xl sm:text-3xl font-black heading-font leading-[1.15] tracking-tight italic text-white relative z-10 uppercase">
-                        {roastData.bestOneLiners[0]}
+                  <div className="relative z-10 pt-6">
+                    <div className="bg-gradient-to-br from-[#1a1a1a] via-black to-[#0a0a0a] p-8 border-l-[8px] border-[#ff0055] shadow-2xl relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#ff0055]/20 to-transparent opacity-60 rounded-bl-full"></div>
+                      <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#00ff88]/10 to-transparent opacity-40 rounded-tr-full"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent pointer-events-none"></div>
+                      <p className="text-2xl sm:text-3xl font-black heading-font leading-[1.15] tracking-tight italic text-white relative z-10 uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                        "{roastData.bestOneLiners[0]}"
                       </p>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-3 gap-4 relative z-10">
-                    <div className="p-4 bg-black border border-[#222] text-center">
-                      <div className="text-2xl font-black text-[#00ff88] heading-font italic tracking-tighter">{userData.repoCount}</div>
-                      <div className="text-[9px] font-black text-gray-600 uppercase mt-1 tracking-widest">FAILURES</div>
+                    <div className="p-4 bg-gradient-to-br from-[#1a1a1a] via-black to-[#0f0f0f] border-2 border-[#333]/50 text-center hover:border-[#00ff88]/50 hover:shadow-[0_0_25px_rgba(0,255,136,0.2)] transition-all group">
+                      <div className="text-3xl font-black text-[#00ff88] heading-font italic tracking-tighter group-hover:scale-110 transition-transform">{userData.repoCount}</div>
+                      <div className="text-[10px] font-black text-gray-300 uppercase mt-3 tracking-widest">FAILURES</div>
                     </div>
-                    <div className="p-4 bg-black border border-[#222] text-center">
-                      <div className="text-2xl font-black text-[#ffaa00] heading-font italic tracking-tighter">{userData.totalStars}</div>
-                      <div className="text-[9px] font-black text-gray-600 uppercase mt-1 tracking-widest">PITY_STARS</div>
+                    <div className="p-4 bg-gradient-to-br from-[#1a1a1a] via-black to-[#0f0f0f] border-2 border-[#333]/50 text-center hover:border-[#ffaa00]/50 hover:shadow-[0_0_25px_rgba(255,170,0,0.2)] transition-all group">
+                      <div className="text-3xl font-black text-[#ffaa00] heading-font italic tracking-tighter group-hover:scale-110 transition-transform">{userData.totalStars}</div>
+                      <div className="text-[10px] font-black text-gray-300 uppercase mt-3 tracking-widest">PITY_STARS</div>
                     </div>
-                    <div className="p-4 bg-black border border-[#222] text-center">
-                      <div className="text-2xl font-black text-[#3b82f6] heading-font italic tracking-tighter">{userData.followers}</div>
-                      <div className="text-[9px] font-black text-gray-600 uppercase mt-1 tracking-widest">BOTS</div>
+                    <div className="p-4 bg-gradient-to-br from-[#1a1a1a] via-black to-[#0f0f0f] border-2 border-[#333]/50 text-center hover:border-[#3b82f6]/50 hover:shadow-[0_0_25px_rgba(59,130,246,0.2)] transition-all group">
+                      <div className="text-3xl font-black text-[#3b82f6] heading-font italic tracking-tighter group-hover:scale-110 transition-transform">{userData.followers}</div>
+                      <div className="text-[10px] font-black text-gray-300 uppercase mt-3 tracking-widest">BOTS</div>
                     </div>
                   </div>
 
-                  <div className="pt-8 border-t border-[#222] flex justify-between items-center opacity-40 relative z-10">
-                    <div className="flex items-center gap-2.5">
-                       <Zap className="w-4 h-4 text-[#00ff88]" />
-                       <span className="text-[9px] font-black uppercase mono-font tracking-[0.3em]">AUDIT_CORE_v2.0_READY</span>
+                  <div className="pt-8 border-t border-[#333]/50 flex justify-between items-center opacity-70 relative z-10">
+                    <div className="flex items-center gap-4">
+                       <div className="flex gap-0.5">
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-2 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1 h-8 bg-[#00ff88]/80"></div>
+                         <div className="w-0.5 h-8 bg-[#00ff88]/60"></div>
+                         <div className="w-1.5 h-8 bg-[#00ff88]/80"></div>
+                       </div>
                     </div>
-                    <span className="text-[9px] font-black uppercase mono-font tracking-[0.3em]">ROASTMYGITHUB.AI</span>
+                    <a 
+                      href="https://repocritic.vercel.app" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[10px] font-black uppercase mono-font tracking-[0.3em] bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:from-[#00ff88] hover:to-[#00ffee] transition-all cursor-pointer"
+                    >
+                      REPOCRITIC.VERCEL.APP
+                    </a>
                   </div>
                 </div>
               </div>
