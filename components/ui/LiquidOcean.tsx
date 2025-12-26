@@ -2,13 +2,11 @@
 import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { Float } from "@react-three/drei";
 
 // Fix: Define Three.js intrinsic elements as any-typed constants to bypass JSX type errors in environments where IntrinsicElements are not properly extended.
 const Mesh = "mesh" as any;
 const Primitive = "primitive" as any;
 const MeshStandardMaterial = "meshStandardMaterial" as any;
-const BoxGeometry = "boxGeometry" as any;
 const Color = "color" as any;
 const AmbientLight = "ambientLight" as any;
 const PointLight = "pointLight" as any;
@@ -34,7 +32,7 @@ const OceanMesh = ({
   const meshRef = useRef<THREE.Mesh>(null);
   
   // Create geometry once
-  const geometry = useMemo(() => new THREE.PlaneGeometry(25, 25, oceanFragments, oceanFragments), [oceanFragments]);
+  const geometry = useMemo(() => new THREE.PlaneGeometry(100, 100, oceanFragments, oceanFragments), [oceanFragments]);
 
   useFrame((state) => {
     if (!meshRef.current) return;
@@ -56,7 +54,7 @@ const OceanMesh = ({
 
   return (
     // Fix: Using constant instead of intrinsic lowercase tag
-    <Mesh ref={meshRef} rotation={[-Math.PI / 2.5, 0, 0]} position={[0, -2, 0]}>
+    <Mesh ref={meshRef} rotation={[-Math.PI / 2.5, 0, 0]} position={[0, -3, 0]}>
       {/* Fix: Using constant instead of intrinsic lowercase tag */}
       <Primitive object={geometry} attach="geometry" />
       {/* Fix: Using constant instead of intrinsic lowercase tag */}
@@ -72,48 +70,6 @@ const OceanMesh = ({
   );
 };
 
-const FloatingBoxes = () => {
-  const count = 20;
-  const boxes = useMemo(() => {
-    return Array.from({ length: count }).map((_, i) => ({
-      position: [
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 5,
-        (Math.random() - 0.5) * 20,
-      ] as [number, number, number],
-      size: Math.random() * 0.5 + 0.1,
-      speed: Math.random() * 0.5 + 0.1,
-    }));
-  }, []);
-
-  return (
-    <>
-      {boxes.map((box, i) => (
-        <Float 
-          key={i} 
-          speed={box.speed * 2} 
-          rotationIntensity={1} 
-          floatIntensity={2} 
-          position={box.position}
-        >
-          {/* Fix: Using constant instead of intrinsic lowercase tag */}
-          <Mesh>
-            {/* Fix: Using constant instead of intrinsic lowercase tag */}
-            <BoxGeometry args={[box.size, box.size, box.size]} />
-            {/* Fix: Using constant instead of intrinsic lowercase tag */}
-            <MeshStandardMaterial 
-              color={i % 2 === 0 ? "#00ff88" : "#ff0055"} 
-              transparent 
-              opacity={0.3} 
-              wireframe
-            />
-          </Mesh>
-        </Float>
-      ))}
-    </>
-  );
-};
-
 export const LiquidOcean: React.FC<LiquidOceanProps> = ({
   backgroundColor = "#050505",
   accentColor = "#00ff88",
@@ -123,7 +79,7 @@ export const LiquidOcean: React.FC<LiquidOceanProps> = ({
   children
 }) => {
   return (
-    <div className="relative w-full h-full min-h-screen bg-[#050505]">
+    <div className="relative w-full h-screen bg-[#050505] overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 5, 15], fov: 45 }}>
           {/* Fix: Using constant instead of intrinsic lowercase tag */}
@@ -140,7 +96,6 @@ export const LiquidOcean: React.FC<LiquidOceanProps> = ({
             oceanFragments={oceanFragments} 
             waveAmplitude={waveAmplitude} 
           />
-          <FloatingBoxes />
           
           <SceneController rotationSpeed={rotationSpeed} />
         </Canvas>
