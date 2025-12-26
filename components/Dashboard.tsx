@@ -311,7 +311,7 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
 
                 <div className="flex flex-col gap-6">
                    <div className="flex-1 bg-black border-4 border-[#00ff88] p-10 shadow-[15px_15px_0px_rgba(0,255,136,0.05)] relative overflow-hidden flex items-center">
-                      <div className="absolute -bottom-4 -right-4 text-7xl font-black italic text-[#00ff88] opacity-5 select-none">CRITIQUE</div>
+                      <div className="absolute bottom-2 right-2 text-6xl font-black italic text-[#00ff88] opacity-10 select-none">CRITIQUE</div>
                       <p className="text-2xl sm:text-3xl font-bold heading-font leading-tight italic text-white relative z-10">
                         {roastData.languageRoast}
                       </p>
