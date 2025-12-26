@@ -292,16 +292,16 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
                   </div>
 
                   <div className="w-full mt-10">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {languageData.map((lang) => (
                           <div 
                             key={lang.name}
-                            className="bg-black/40 border border-[#222] px-2 py-2 flex items-center gap-2"
+                            className="bg-black/60 border border-[#333] px-3 py-3 flex items-center gap-3 hover:border-[#00ff88] transition-all hover:bg-black/80"
                           >
-                            <div className="w-2 h-2 shrink-0" style={{ backgroundColor: lang.color }} />
+                            <div className="w-3 h-3 shrink-0 rounded-full" style={{ backgroundColor: lang.color }} />
                             <div className="flex flex-col min-w-0">
-                              <span className="text-[9px] font-black text-white uppercase truncate tracking-tighter">{lang.name}</span>
-                              <span className="text-[8px] font-bold text-gray-600 leading-none">{lang.percentage}%</span>
+                              <span className="text-[10px] font-black text-white uppercase truncate tracking-tighter">{lang.name}</span>
+                              <span className="text-[9px] font-bold text-[#00ff88] leading-none">{lang.percentage}%</span>
                             </div>
                           </div>
                         ))}
