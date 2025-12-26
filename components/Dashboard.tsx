@@ -202,8 +202,8 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
                 <div className="lg:col-span-2 bg-black border-4 border-[#ff0055] p-8 sm:p-12 relative flex flex-col justify-center shadow-[15px_15px_0px_rgba(255,0,85,0.1)]">
                   <div className="absolute top-4 right-6 text-[40px] sm:text-[80px] opacity-10 select-none font-black italic heading-font text-[#ff0055]">UNFILTERED</div>
                   <div className="flex items-center gap-3 mb-8">
-                    <ShieldAlert className="w-8 h-8 text-[#ff0055]" />
-                    <h3 className="text-2xl font-black text-[#ff0055] uppercase tracking-tighter heading-font">BRUTAL AUDIT VERDICT</h3>
+                    {/* <ShieldAlert className="w-8 h-8 text-[#ff0055]" /> */}
+                    <h3 className="text-2xl font-black text-[#ff0055] uppercase tracking-tighter heading-font">VERDICT</h3>
                   </div>
                   <p className="text-2xl sm:text-4xl font-bold heading-font leading-[1.1] text-white tracking-tight">
                     {roastData.overviewRoast}
@@ -317,7 +317,7 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
                       </p>
                    </div>
                    
-                   <div className="grid grid-cols-2 gap-4">
+                   {/* <div className="grid grid-cols-2 gap-4">
                       <div className="p-6 bg-[#111] border-2 border-[#222] text-center flex flex-col justify-center">
                         <div className="text-4xl font-black text-[#ff0055] mb-1 heading-font">{roastData.diversityScore}</div>
                         <div className="text-[10px] text-gray-500 uppercase font-black tracking-widest">DIVERSITY_INDEX</div>
@@ -326,7 +326,7 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
                         <div className="text-4xl font-black text-[#00ff88] mb-1 heading-font">{roastData.effortScore}</div>
                         <div className="text-[10px] text-gray-500 uppercase font-black tracking-widest">COMPLEXITY_LVL</div>
                       </div>
-                   </div>
+                   </div> */}
                 </div>
               </div>
             </motion.div>
@@ -426,7 +426,7 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
               </div>
 
               {/* Commit Message Log */}
-              <div className="bg-[#050505] border-2 border-[#222] p-8">
+              {/* <div className="bg-[#050505] border-2 border-[#222] p-8">
                  <div className="flex items-center gap-3 mb-8 border-b border-[#222] pb-4">
                     <MessageSquare className="w-5 h-5 text-gray-500" />
                     <h4 className="text-xl font-black uppercase tracking-[0.3em] text-gray-500">RAW_COMMIT_STREAM_LOG</h4>
@@ -453,7 +453,7 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
                       </div>
                     )}
                  </div>
-              </div>
+              </div> */}
             </motion.div>
           )}
 
