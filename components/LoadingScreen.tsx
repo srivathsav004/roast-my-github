@@ -79,7 +79,7 @@ const LoadingScreen: React.FC = () => {
 
         <div className="space-y-2">
           <div className="flex justify-between text-xs mono-font text-gray-500 uppercase">
-            <span>Analyzing Ego...</span>
+            <span>Analyzing...</span>
             <span>{Math.round(progress)}%</span>
           </div>
           <div className="h-1 bg-[#222] w-full">

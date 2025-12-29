@@ -139,13 +139,25 @@ const Dashboard: React.FC<Props> = ({ userData, roastData, onReset }) => {
             </div>
           </div>
           <div className="hidden sm:flex gap-2">
-            <a 
-              href={`https://github.com/${userData.username}`} 
+            <motion.a 
+              href="https://github.com/srivathsav004/roast-my-github" 
               target="_blank" 
-              className="flex items-center gap-2 px-5 py-2.5 border-2 border-[#222] bg-[#111] hover:border-[#00ff88] transition-all text-xs font-black tracking-widest"
+              className="relative group flex items-center gap-2 px-5 py-2.5 border-2 border-[#222] bg-[#111] hover:border-[#ffaa00] transition-all text-xs font-black tracking-widest overflow-hidden"
+              whileTap={{ scale: 0.95 }}
             >
-              <Github className="w-4 h-4" /> GITHUB_PROFILE
-            </a>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#ffaa00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <motion.div 
+                className="relative z-10 flex items-center gap-2"
+              >
+                <Star className="w-4 h-4 group-hover:fill-[#ffaa00] transition-all" />
+                <span className="group-hover:text-[#ffaa00] transition-colors">STAR_MY_REPO</span>
+              </motion.div>
+              <motion.div 
+                className="absolute -top-1 -right-1 w-2 h-2 bg-[#ffaa00] rounded-full"
+                animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.a>
           </div>
         </div>
 
